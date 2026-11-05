@@ -1,0 +1,13 @@
+def kToF(k):
+    return (k - 273.15) * 9 / 5 + 32
+
+
+def main():
+    print("Kelvin\tFahrenheit")
+
+    for k in range(0, 301, 20):
+        fahrenheit = kToF(k)
+        print(k, "\t", round(fahrenheit, 2))
+
+
+main()
