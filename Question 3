@@ -1,0 +1,17 @@
+def calcPmt(P0, r, k, N):
+    d = (P0 * (r / k)) / (1 - (1 + r / k) ** (-N * k))
+    return d
+
+
+def main():
+    P0 = float(input("Enter amount to finance: "))
+    r = float(input("Enter annual interest rate as a decimal: "))
+    k = int(input("Enter number of times interest is compounded per year: "))
+    N = int(input("Enter number of years: "))
+
+    payment = calcPmt(P0, r, k, N)
+
+    print("Monthly payment:", round(payment, 2))
+
+
+main()
