@@ -1,0 +1,25 @@
+from graphics import *
+
+
+def chaos(k, x, n):
+    return k * x * (1 - x)
+
+
+def main():
+    win = GraphWin("Logistic Function", 500, 500)
+
+    k = float(input("Enter k value: "))
+    x = float(input("Enter starting x value: "))
+    n = int(input("Enter number of iterations: "))
+
+    for i in range(n):
+        x = chaos(k, x, n)
+
+        point = Point(i * 5, 500 - x * 500)
+        point.draw(win)
+
+    win.getMouse()
+    win.close()
+
+
+main()
