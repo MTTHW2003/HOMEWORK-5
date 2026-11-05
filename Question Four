@@ -1,0 +1,51 @@
+from graphics import *
+import math
+
+
+def drawPolygon(win, n):
+    angle = 360 / n
+    radius = 100
+    points = []
+
+    for i in range(n):
+        x = 250 + radius * math.cos(math.radians(i * angle))
+        y = 250 - radius * math.sin(math.radians(i * angle))
+
+        points.append(Point(x, y))
+
+    polygon = Polygon(points)
+    return polygon
+
+
+def graphPolygon(win, entry):
+    win.getMouse()
+
+    n = int(entry.getText())
+
+    polygon = drawPolygon(win, n)
+    polygon.draw(win)
+
+
+def main():
+    win = GraphWin("Polygon Graph", 500, 500)
+
+    label = Text(Point(100, 30), "Number of sides:")
+    label.draw(win)
+
+    entry = Entry(Point(220, 30), 5)
+    entry.draw(win)
+
+    button = Rectangle(Point(300, 15), Point(390, 45))
+    button.draw(win)
+
+    buttonText = Text(Point(345, 30), "Graph")
+    buttonText.draw(win)
+
+    graphPolygon(win, entry)
+
+    win.getMouse()
+
+    win.close()
+
+
+main()
